@@ -108,7 +108,7 @@ class _MovieListState extends State<MovieList> {
                         child: Text(
                           'Read More',
                           style: TextStyle(
-                            color: isHovered ? Colors.black : Tcolor.primaryColor2,
+                            color: isHovered ? Colors.black : Tcolor.secondaryColor1,
                           ),
                         ),
                       ),
