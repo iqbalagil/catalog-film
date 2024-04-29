@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_listmovie/common/color_widget.dart';
+import 'package:flutter_application_listmovie/pages/movie_detail.dart';
+import 'package:flutter_application_listmovie/widget/navigation_bar.dart';
 import 'package:flutter_application_listmovie/pages/list_movie.dart';
 
 void main() {

@@ -3,6 +3,7 @@ import 'package:flutter_application_listmovie/common/color_widget.dart';
 import 'package:flutter_application_listmovie/service/http_service.dart';
 import 'package:flutter_application_listmovie/models/movie.dart';
 import 'package:flutter_application_listmovie/pages/movie_detail.dart';
+import 'package:flutter_application_listmovie/widget/navigation_bar.dart';
 
 class MovieList extends StatefulWidget {
   const MovieList({Key? key}) : super(key: key);
@@ -33,12 +34,15 @@ class _MovieListState extends State<MovieList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       appBar: AppBar(
+        elevation: 1,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(30),
           ),
         ),
+
         backgroundColor: Tcolor.secondaryColor1,
         title: const Text(
           "Popular Movies",
@@ -57,7 +61,10 @@ class _MovieListState extends State<MovieList> {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ClipRRect(
+                Card(
+                  elevation: 2,
+                  shadowColor: Colors.black12,
+                child: ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
                   child: Image.network(
                     'https://image.tmdb.org/t/p/w500${movies[position].posterPath}',
@@ -66,15 +73,18 @@ class _MovieListState extends State<MovieList> {
                     fit: BoxFit.cover,
                   ),
                 ),
+                ),
+
                 const SizedBox(width: 16),
-                Expanded(
+
+                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         movies[position].title,
                         style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyText1!.color,
+                          color: Theme.of(context).textTheme.bodySmall!.color,
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
                         ),
@@ -89,9 +99,9 @@ class _MovieListState extends State<MovieList> {
                           ),
                           const SizedBox(width: 4),
                           Text(
-                            '${movies[position].voteAverage}',
+                              movies[position].voteAverage.toStringAsFixed(1),
                             style: TextStyle(
-                              color: Theme.of(context).textTheme.bodyText2!.color,
+                              color: Theme.of(context).textTheme.bodyMedium!.color,
                               fontSize: 14,
                             ),
                           ),
@@ -120,6 +130,7 @@ class _MovieListState extends State<MovieList> {
           );
         },
       ),
+      // bottomNavigationBar: const Navbar(),
     );
   }
 }
