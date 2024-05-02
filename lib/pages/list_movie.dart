@@ -34,25 +34,6 @@ class _MovieListState extends State<MovieList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
-      appBar: AppBar(
-        elevation: 1,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(30),
-          ),
-        ),
-
-        backgroundColor: Tcolor.secondaryColor1,
-        title: const Text(
-          "Popular Movies",
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
-        ),
-      ),
       body: ListView.builder(
         itemCount: moviesCount,
         itemBuilder: (context, position) {
